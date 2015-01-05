@@ -1,0 +1,18 @@
+<>
+
+// draw gameover screen
+ i [ #i/2 - 11 , r ] [ #j / 2 - 8 , d ]
+
+   /* G */ [6,pd][3,pr][3,pu][2,pl][3,u][3,pr]r
+   /* A */ [7,pd][3,r]u[3,pu][3,pl][3,u][3,pr][3,pd][3,u]rr
+   /* M */ [6,d][6,pu][3,prdpd]pu[3,prupu]d[7,pd][7,u]rr
+   /* E */ [6,pd][4,pr]l[3,u][2,lp][3,u][3,pr]r
+
+   [ 23 , l ] [ 8 , d ]
+
+   /* O */ [7,pd]u[2,rp]r[6,pu][3,pl][5,r]
+   /* V */ [4,pd][2,prd][2,pru][5,pu]drr
+   /* E */ [6,pd][4,pr]l[3,u][2,lp][3,u][3,pr]r
+   /* R */ [7,pd][7,u][3,rp][3,pd][3,pl]rrdpr[2,dp][6,u]rr
+
+   /* ! */  pdpdpdpdpddp

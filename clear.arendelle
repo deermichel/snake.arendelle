@@ -1,0 +1,12 @@
+<snakex, snakey>
+
+(index, 0)
+
+// clear drawing area
+[@snakex?,
+	i
+	[@snakex[@index], r]
+	[@snakey[@index], d]
+	c
+	(index, +1)
+]

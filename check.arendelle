@@ -1,0 +1,20 @@
+<snakex, snakey>
+
+(i, 0)
+(j, 0)
+
+// check if snake crashes
+[@snakex?,
+	[@snakex?,
+		{not(@i=@j),
+			{@snakex[@i] = @snakex[@j],
+				{@snakey[@i] = @snakey[@j],
+					(return, true)
+				}
+			}
+		}
+		(j, +1)
+	]
+	(j, 0)
+	(i, +1)
+]

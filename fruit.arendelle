@@ -1,0 +1,13 @@
+<snakex, snakey, fruitx, fruity>
+
+(index, 0)
+
+// check if snake eats the fruit
+[@snakex?,
+	{@snakex[@index]=@fruitx,
+		{@snakey[@index]=@fruity,
+			(return, true)
+		}
+	}
+	(index, +1)
+]

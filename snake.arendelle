@@ -1,0 +1,63 @@
+'Snake by mh | Score: 0 | Highscore: $highscore'
+
+(snakex[0], 0)
+(snakey[0], 0)
+(d, 0)
+
+// draw fruit
+(fruitx, #rnd*#width)
+(fruity, #rnd*#height)
+i[@fruitx, r][@fruity, d]nnnpn
+
+// gameloop
+[ !check(@snakex, @snakey)=false,
+
+// key
+{&left, (d, 1)}
+{&right, (d, 2)}
+{&up, (d, 3)}
+{&down, (d, 4)}
+
+// shift
+(index, 1)
+[@snakex? - 1,
+(snakex[@snakex?-@index], @snakex[@snakex?-@index-1])
+(snakey[@snakey?-@index], @snakey[@snakey?-@index-1])
+(index, +1)
+]
+
+// move
+{@d=1, 	(snakex[0], -1)	}
+{@d=2, 	(snakex[0], +1)	}
+{@d=3, 	(snakey[0], -1)	}
+{@d=4, 	(snakey[0], +1)	}
+
+// border
+{@snakex[0]<0, (snakex[0], #width)}
+{@snakex[0]>#width, (snakex[0], 0)}
+{@snakey[0]<0, (snakey[0], #height)}
+{@snakey[0]>#height, (snakey[0], 0)}
+
+// fruit?
+{!fruit(@snakex, @snakey, @fruitx, @fruity),
+	(snakex[@snakex?], 0)
+	(snakey[@snakey?], 0)
+	(fruitx, #rnd*#width)
+	(fruity, #rnd*#height)
+	i[@fruitx, r][@fruity, d]nnnpn
+	(score, @snakex?-1)
+	{@score>$highscore, ($highscore, @score)}
+	'Snake by mh | Score: @score | Highscore: $highscore'
+}
+
+// draw snake
+!draw(@snakex, @snakey)
+[100, w]
+!clear(@snakex, @snakey)
+
+]
+
+// clear fruit
+i[@fruitx, r][@fruity, d]c
+
+!gameover()

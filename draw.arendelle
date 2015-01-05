@@ -1,0 +1,12 @@
+<snakex, snakey>
+
+(index, 0)
+
+// draw snake
+[@snakex?,
+	i
+	[@snakex[@index], r]
+	[@snakey[@index], d]
+	p
+	(index, +1)
+]
